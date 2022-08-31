@@ -9,7 +9,6 @@ on:
 
 jobs:
   yaml2csv:
-    name: Validate sentinel detections
     runs-on: ubuntu-latest
     steps:
       - name: Setup PowerShell module cache
