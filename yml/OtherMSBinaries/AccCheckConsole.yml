@@ -1,7 +1,7 @@
 ---
 Name: AccCheckConsole.exe
 Description: Verifies UI accessibility requirements
-Author: 'bohops'
+Author: "bohops"
 Created: 2022-01-02
 Commands:
   - Command: AccCheckConsole.exe -window "Untitled - Notepad" C:\path\to\your\lolbas.dll
@@ -33,5 +33,5 @@ Resources:
   - Link: https://twitter.com/bohops/status/1477717351017680899
 Acknowledgement:
   - Person: Jimmy
-    Handle: '@bohops'
+    Handle: "@bohops"
 ---
