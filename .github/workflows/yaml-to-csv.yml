@@ -1,0 +1,36 @@
+---
+name: Convert YAML to CSV
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "yml/**.yml"
+
+jobs:
+  yaml2csv:
+    name: Validate sentinel detections
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup PowerShell module cache
+        id: cacher
+        uses: actions/cache@v2
+        with:
+          path: "~/.local/share/powershell/Modules"
+          key: ${{ runner.os }}-powershell-yaml
+
+      - name: Install required PowerShell modules
+        if: steps.cacher.outputs.cache-hit != 'true'
+        shell: pwsh
+        run: |
+          Set-PSRepository PSGallery -InstallationPolicy Trusted
+          Install-Module powershell-yaml -ErrorAction Stop
+
+      - uses: actions/checkout@v3
+
+      - name: Export binary filename as csv
+        shell: pwsh
+        run: |
+          Get-ChildItem -Filter *.yml -Recurse -Path .\yml | % { Get-Content -Path $_ | ConvertFrom-Yaml | Select-Object Name } | Export-Csv -Path .\BinariesList.csv -Encoding utf8 -Force -QuoteFields:$false
+
+    - uses: stefanzweifel/git-auto-commit-action@v4
