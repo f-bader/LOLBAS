@@ -2,6 +2,8 @@
 
 <img src="https://github.com/api0cradle/LOLBAS/raw/master/Logo/LOLBAS.png" height="250">
 
+[![Convert YAML to CSV](https://github.com/f-bader/LOLBAS/actions/workflows/yaml-to-csv.yml/badge.svg)](https://github.com/f-bader/LOLBAS/actions/workflows/yaml-to-csv.yml)
+
 All the different files can be found behind a fancy frontend here: https://lolbas-project.github.io (thanks @ConsciousHacker for this bit of eyecandy and the team over at https://gtfobins.github.io/).
 This repo serves as a place where we maintain the YML files that are used by the fancy frontend.
 
